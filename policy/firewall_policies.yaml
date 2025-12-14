@@ -1,0 +1,15 @@
+policies:
+  - name: high_risk_outbound_block
+    condition:
+      risk_score: ">80"
+    action:
+      type: restrict_outbound
+      duration_minutes: 15
+    description: High cumulative behavioral risk
+
+  - name: medium_risk_monitor
+    condition:
+      risk_score: ">50"
+    action:
+      type: monitor_only
+    description: Elevated risk, monitoring only
